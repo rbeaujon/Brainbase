@@ -1,0 +1,67 @@
+<div class="crypto">
+    <p>Select Crypto {{ selectedCrypto }}</p>
+    <select #crypto (change)="onSelectedCrypto(crypto.value)">
+        <option value="BTC">BTC</option>
+        <option value="ETH">ETH</option>>
+    </select>
+</div>
+
+<div class="currency">
+    <p>Select Currency {{ selectedCurrency }}</p>
+    <select #currency (change)="onSelectedCurrency(currency.value)">
+        <option value="USD">Dolar</option>
+        <option value="EUR">Euro</option>>
+    </select>
+</div>
+
+
+
+
+ <div class="row">
+    <div class="column">
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Symbol</th>
+          <th>Openning Price</th>
+          <td>Closing Price</td>
+          <td>Change</td>
+        </tr>
+        <tr>
+          <td>{{this.openCloseResponse.BTC.name}}</td>
+          <td>{{this.openCloseResponse.BTC.symbol}}</td>
+          <td>{{this.openCloseResponse.BTC.open}}</td>
+          <td>{{this.openCloseResponse.BTC.close}}</td>
+          <td class={{this.openCloseResponse.BTC.color}}>{{this.openCloseResponse.BTC.diff}}</td>
+        </tr>
+        <tr>
+            <td>{{this.openCloseResponse.ETH.name}}</td>
+            <td>{{this.openCloseResponse.ETH.symbol}}</td>
+            <td>{{this.openCloseResponse.ETH.open}}</td>
+            <td>{{this.openCloseResponse.ETH.close}}</td>
+            <td class={{this.openCloseResponse.ETH.color}}>{{this.openCloseResponse.ETH.diff}}</td>
+        </tr>
+        <tr>
+            <td>{{this.openCloseResponse.LTC.name}}</td>
+            <td>{{this.openCloseResponse.LTC.symbol}}</td>
+            <td>{{this.openCloseResponse.LTC.open}}</td>
+            <td>{{this.openCloseResponse.LTC.close}}</td>
+            <td class={{this.openCloseResponse.LTC.color}}>{{this.openCloseResponse.LTC.diff}}</td>
+        </tr>
+        <tr>
+            <td>{{this.openCloseResponse.DOT.name}}</td>
+            <td>{{this.openCloseResponse.DOT.symbol}}</td>
+            <td>{{this.openCloseResponse.DOT.open}}</td>
+            <td>{{this.openCloseResponse.DOT.close}}</td>
+            <td class={{this.openCloseResponse.DOT.color}}>{{this.openCloseResponse.DOT.diff}}</td>
+        </tr>
+        <tr>
+            <td>{{this.openCloseResponse.DOGE.name}}</td>
+            <td>{{this.openCloseResponse.DOGE.symbol}}</td>
+            <td>{{this.openCloseResponse.DOGE.open}}</td>
+            <td>{{this.openCloseResponse.DOGE.close}}</td>
+            <td class={{this.openCloseResponse.DOGE.color}}>{{this.openCloseResponse.DOGE.diff}}</td>
+         </tr>
+      </table>
+    </div>
+  </div>
