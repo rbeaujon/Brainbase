@@ -1,20 +1,23 @@
-<div class="crypto">
-    <p>Select Crypto {{ selectedCrypto }}</p>
-    <select #crypto (change)="onSelectedCrypto(crypto.value)">
-        <option value="BTC">BTC</option>
-        <option value="ETH">ETH</option>>
-    </select>
+<div class="selectors">
+    <div>Select Currency</div>
+    <div>
+        <select #currency id="currency" (change)="onSelectedCurrency(currency.value)" (change)="avoid429()">
+            <option value="USD">Dolar</option>
+            <option value="EUR">Euro</option>>
+        </select>
+    </div>
+    <div>Select Date (2021-07-12)</div>
+    <div>
+        <select id="year" name="year"></select>
+    </div>
+    <div>
+        <select id="month" name="month"></select>
+    </div>
+    <div>
+        <select id="day" name="day"></select>
+    </div>
+
 </div>
-
-<div class="currency">
-    <p>Select Currency {{ selectedCurrency }}</p>
-    <select #currency (change)="onSelectedCurrency(currency.value)">
-        <option value="USD">Dolar</option>
-        <option value="EUR">Euro</option>>
-    </select>
-</div>
-
-
 
 
  <div class="row">
@@ -24,8 +27,8 @@
           <th>Name</th>
           <th>Symbol</th>
           <th>Openning Price</th>
-          <td>Closing Price</td>
-          <td>Change</td>
+          <th>Closing Price</th>
+          <th>Change</th>
         </tr>
         <tr>
           <td>{{this.openCloseResponse.BTC.name}}</td>
