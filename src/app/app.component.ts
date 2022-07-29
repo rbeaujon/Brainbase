@@ -10,11 +10,11 @@ import { OpenCloseResponseI } from './model/response.interface';
 export class AppComponent implements OnInit{
   title = 'brainbase';
   openCloseResponse = {
-    BTC: { name: 'BITCOIN', symbol: 'BTC', close: '', open: '', diff: 0, color: ''},
-    ETH: { name: 'ETHEREUM', symbol: 'ETH', close: '', open: '', diff: 0, color: ''},
-    LTC: { name: 'LITECOIN', symbol: 'LTC', close: '', open: '', diff: 0, color: ''},
-    DOT: { name: 'OLKADOT', symbol: 'DOT', close: '', open: '', diff: 0, color: ''},
-    DOGE: { name: 'DOGECOIN', symbol: 'DOGE', close: '', open: '', diff: 0, color: ''}
+    BTC: { name: 'BITCOIN', symbol: 'BTC', close: '', open: '', diff: 0, color: '', error: ''},
+    ETH: { name: 'ETHEREUM', symbol: 'ETH', close: '', open: '', diff: 0, color: '', error: ''},
+    LTC: { name: 'LITECOIN', symbol: 'LTC', close: '', open: '', diff: 0, color: '', error: ''},
+    DOT: { name: 'OLKADOT', symbol: 'DOT', close: '', open: '', diff: 0, color: '', error: ''},
+    DOGE: { name: 'DOGECOIN', symbol: 'DOGE', close: '', open: '', diff: 0, color: '', error: ''}
   }; 
   state = {
     currency: 'USD',
@@ -130,6 +130,7 @@ export class AppComponent implements OnInit{
 }
 
   callIP(reset: number) {
+    
    if(reset === 1){
     const { year, month, day } = this.state.selectedDate
     year !== "" && month !=="" && day !== "" 
@@ -137,40 +138,117 @@ export class AppComponent implements OnInit{
     : this.state.date
    }
     const { currency, date } = this.state
-    console.log("DATE " + this.state.date)
    
+    /****************** BTC *********************/
     this.apiService.getOpenCloseBTC(currency, date).subscribe(BTC =>{
-      this.openCloseResponse.BTC.open = BTC.open;
-      this.openCloseResponse.BTC.close = BTC.close;
-      this.openCloseResponse.BTC.diff = parseFloat((this.getDiff(parseFloat(BTC.open),parseFloat(BTC.close))).toFixed(2));
-      this.openCloseResponse.BTC.color = this.openCloseResponse.BTC.diff > 0 ? "green" : "red"
+      const cryptoBTC = this.openCloseResponse.BTC
+      cryptoBTC.open = BTC.open;
+      cryptoBTC.close = BTC.close;
+      cryptoBTC.diff = parseFloat((this.getDiff(parseFloat(BTC.open),parseFloat(BTC.close))).toFixed(2));
+      cryptoBTC.color = cryptoBTC.diff > 0 ? "green" : "red"
+      cryptoBTC.error = ""
+    },
+    () => {   // Error verification
+      console.log('error caught in component')
+      const cryptoBTC = this.openCloseResponse.BTC
+      cryptoBTC.open = "no access";
+      cryptoBTC.close = "no access";
+      cryptoBTC.diff = 0;
+      cryptoBTC.error = "access_error";
     });
+
+    /****************** ETH *********************/
     this.apiService.getOpenCloseETH(currency, date).subscribe(ETH =>{
-      this.openCloseResponse.ETH.open = ETH.open;
-      this.openCloseResponse.ETH.close = ETH.close;
-      this.openCloseResponse.ETH.diff = parseFloat((this.getDiff(parseFloat(ETH.open),parseFloat(ETH.close))).toFixed(2));
-      this.openCloseResponse.ETH.color = this.openCloseResponse.ETH.diff > 0 ? "green" : "red"
-    }); 
+      const cryptoETH = this.openCloseResponse.ETH
+      cryptoETH.open = ETH.open;
+      cryptoETH.close = ETH.close;
+      cryptoETH.diff = parseFloat((this.getDiff(parseFloat(ETH.open),parseFloat(ETH.close))).toFixed(2));
+      cryptoETH.color = this.openCloseResponse.ETH.diff > 0 ? "green" : "red"
+      cryptoETH.error = ""
+    },
+    () => {   // Error verification
+      console.log('error caught in component')
+      const cryptoETH = this.openCloseResponse.ETH
+      cryptoETH.open = "no access";
+      cryptoETH.close = "no access";
+      cryptoETH.diff = 0;
+      cryptoETH.error = "access_error";
+    });
+
+    /****************** LTC *********************/
     this.apiService.getOpenCloseLTC(currency, date).subscribe((LTC)=>{
-      this.openCloseResponse.LTC.open = LTC.open;
-      this.openCloseResponse.LTC.close = LTC.close;
-      this.openCloseResponse.LTC.diff = parseFloat((this.getDiff(parseFloat(LTC.open),parseFloat(LTC.close))).toFixed(2));
-      this.openCloseResponse.LTC.color = this.openCloseResponse.LTC.diff > 0 ? "green" : "red"
+      const cryptoLTC = this.openCloseResponse.LTC
+      cryptoLTC.open = LTC.open;
+      cryptoLTC.close = LTC.close;
+      cryptoLTC.diff = parseFloat((this.getDiff(parseFloat(LTC.open),parseFloat(LTC.close))).toFixed(2));
+      cryptoLTC.color = cryptoLTC.diff > 0 ? "green" : "red"
+      cryptoLTC.error = ""
+    },
+    () => {   // Error verification
+      console.log('error caught in component')
+      const cryptoLTC = this.openCloseResponse.LTC
+      cryptoLTC.open = "no access";
+      cryptoLTC.close = "no access";
+      cryptoLTC.diff = 0;
+      cryptoLTC.error = "access_error";
     });
+
+    /****************** DOT *********************/
     this.apiService.getOpenCloseDOT(currency, date).subscribe((DOT)=>{
-      this.openCloseResponse.DOT.open = DOT.open;
-      this.openCloseResponse.DOT.close = DOT.close;
-      this.openCloseResponse.DOT.diff = parseFloat((this.getDiff(parseFloat(DOT.open),parseFloat(DOT.close))).toFixed(2));
-      this.openCloseResponse.DOT.color = this.openCloseResponse.DOT.diff > 0 ? "green" : "red"
+      const cryptoDOT = this.openCloseResponse.DOT
+      cryptoDOT.open = DOT.open;
+      cryptoDOT.close = DOT.close;
+      cryptoDOT.diff = parseFloat((this.getDiff(parseFloat(DOT.open),parseFloat(DOT.close))).toFixed(2));
+      cryptoDOT.color = this.openCloseResponse.DOT.diff > 0 ? "green" : "red"
+      cryptoDOT.error = ""
+    },
+    () => {   // Error verification
+      console.log('error caught in component')
+      const cryptoDOT = this.openCloseResponse.DOT
+      cryptoDOT.open = "no access";
+      cryptoDOT.close = "no access";
+      cryptoDOT.diff = 0;
+      cryptoDOT.color = ""
+      cryptoDOT.error = "access_error";
     });
+
+    /****************** DOGE *********************/
     this.apiService.getOpenCloseDOGE(currency, date).subscribe((DOGE)=>{
-      this.openCloseResponse.DOGE.open = DOGE.open;
-      this.openCloseResponse.DOGE.close = DOGE.close;
-      this.openCloseResponse.DOGE.diff = parseFloat((this.getDiff(parseFloat(DOGE.open),parseFloat(DOGE.close))).toFixed(2));
-      this.openCloseResponse.DOGE.color = this.openCloseResponse.DOGE.diff > 0 ? "green" : "red"
+      const cryptoDOTGE = this.openCloseResponse.DOGE
+      cryptoDOTGE.open = DOGE.open;
+      cryptoDOTGE.close = DOGE.close;
+      cryptoDOTGE.diff = parseFloat((this.getDiff(parseFloat(DOGE.open),parseFloat(DOGE.close))).toFixed(2));
+      cryptoDOTGE.color = this.openCloseResponse.DOGE.diff > 0 ? "green" : "red"
+      cryptoDOTGE.error = ""
+    },
+    () => {   // Error verification
+      console.log('error caught in component')
+      const cryptoDOTGE = this.openCloseResponse.DOGE
+      cryptoDOTGE.open = "no access";
+      cryptoDOTGE.close = "no access";
+      cryptoDOTGE.diff = 0;
+      cryptoDOTGE.color = ""
+      cryptoDOTGE.error = "access_error";
     });
+
+    const information = document.getElementById("information")
+    if(information) {
+      information.style.display = 'none';
+    }
+    const cryptoBTC = this.openCloseResponse.DOGE
+    const cryptoETH = this.openCloseResponse.DOGE
+    const cryptoLTC = this.openCloseResponse.DOGE
+    const cryptoDOT = this.openCloseResponse.DOGE
+    const cryptoDOTGE = this.openCloseResponse.DOGE
+
+    if(cryptoBTC.error !== "" ||cryptoETH.error !== "" || cryptoLTC.error !== "" || cryptoDOT.error !== "" || cryptoDOTGE.error !== "" ){
+      if(information) {
+        information.style.display = 'block';
+      }
+    }
   }
   
+   
 
 
 }

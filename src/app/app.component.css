@@ -51,7 +51,7 @@
     }
     .selectors {
       display: grid;
-      grid-template-columns: 10vw 5vw 15vw 5vw 3vw 3vw;
+      grid-template-columns: 10vw 8vw 8vw 5vw 3vw;
       grid-gap: 1px;
       margin: 2vw 0 0 2vw;
       align-items:center;
@@ -71,7 +71,7 @@
     float: left;
     position: absolute;
     left: 0px;
-    top: 0px;
+    top: -10px;
     z-index: 1000;
     background-color: #ffffff;
     padding: 5px;
@@ -87,7 +87,7 @@
     margin-left:2px;
     float:right;
     color:rgb(62, 65, 65);
-    background-color: #b2e7f3;
+    background-color: #b0bbbd;
     border: #ffffff;
     border-radius: 5px;
   }
@@ -95,25 +95,18 @@
     background-color: #b4babb;
     color: #0e0d0d;
   }
-   /*
-#yearbutton {
-    background-color: #db2b2b !important;
-    color: rgb(25, 26, 26) !important;
+
+  .access_error td{  
+    background-color: rgba(215, 190, 190, 0.674) !important;
+    border-style: groove;
+  }
+  .information_title {
+    float:left;
+    font-weight: bold;
+    font-size: 0.7vw;
 }
-.day{
-    display:grid;
-    grid-template-columns: repeat(7, 1fr);
-    cursor:pointer;
-    outline:0;
-    border:0;
-    background:transparent;
-    font-family: 'Montserrat', sans-serif;
-    font-size:12px;
-    justify-self:center;
-    align-self:center;
-    width:50px;
-    height:50px;
-    border-radius:5px;
-    margin:5px;
-    transition-duration:.2s;
-  } */
+  .information {
+      background-color: #f8fbfc;
+      float:left;
+      font-size: 0.7vw;
+  }
