@@ -6,15 +6,18 @@
             <option value="EUR">Euro</option>>
         </select>
     </div>
-    <div>Select Date (2021-07-12)</div>
-    <div>
-        <select id="year" name="year"></select>
-    </div>
-    <div>
-        <select id="month" name="month"></select>
-    </div>
-    <div>
-        <select id="day" name="day"></select>
+    <div>Select Date (2021-5-31)</div>
+    <div id="calendar-container" class="calendar-container"> 
+            <span>Calendar</span>
+            <div id="calendar" class="calendar" >
+                <select id="year" #year (change)="onSelectedYear(year.value)"></select>
+                <select id="month" name="month"></select>
+                <select id="day" name="day"></select>
+                <button (click)="this.callIP(0)" >OK</button>
+                <button (click)="this.callIP(1)" >Today</button>
+                
+            </div>
+
     </div>
 
 </div>

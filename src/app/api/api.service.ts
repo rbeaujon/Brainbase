@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { OpenCloseResponseI } from '../model/response.interface';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +13,7 @@ export class ApiService {
   apikey:  string = 'HsXGDm0Acw5MuVVMGHM6T_cArLqN8Yfo';
   apikey2: string = 'BOigQhu1KdTBz4dQbhkgTiJQTIcTq_0p';
 
-  public getOpenCloseBTC(currency: string, date: string): Observable <OpenCloseResponseI> {
+  public getOpenCloseBTC(currency: string, date: string) {
     const direction: string  = this.url + "BTC/" + currency + "/"+ date + "?adjusted=true&apiKey=" + this.apikey; 
     return this.httpClient.get<OpenCloseResponseI>(direction)
  

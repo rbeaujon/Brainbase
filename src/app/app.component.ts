@@ -18,19 +18,28 @@ export class AppComponent implements OnInit{
   }; 
   state = {
     currency: 'USD',
-    date: new Date().toJSON().slice(0,10).replace(/-/g,'-')
+    date: new Date().toJSON().slice(0,10).replace(/-/g,'-'),
+    selectedDate: {
+      year: '',
+      month: '',
+      day: ''
+    }
   }
 
   selectedCurrency = '';
     onSelectedCurrency(value:string) {
       this.state.currency =value
-      this.callIP()
+      this.callIP(0)
     }  
+  selectedYear = '';
+  onSelectedYear(value:string) {
+    this.state.selectedDate.year = value
+  }  
 
   constructor(private apiService: ApiService) {}
  
   ngOnInit() {
-    this.callIP()
+    this.callIP(0)
     this.getDate()
 
   }
@@ -38,18 +47,33 @@ export class AppComponent implements OnInit{
 
     getDate () {
 
+      const calendarContainer = document.getElementById("calendar-container")
+      const calendar = document.getElementById("calendar")
+      if(calendarContainer && calendar) {
+        calendarContainer?.addEventListener('mouseover', function handleMouseOver() {
+        calendar.style.display = 'block';
+      });
+      
+      calendarContainer.addEventListener('mouseout', function handleMouseOut() {
+        calendar.style.display = 'none';
+      });
+    }
+ 
+
         // YEAR
 
-        let year_satart = (new Date).getFullYear()-1;
+        let year_start = (new Date).getFullYear()-1;
         let year_end = (new Date).getFullYear(); // current year
-        let year_selected = year_end;
+        let year_selected = 0;
 
         let optionYear = '';
+        optionYear = '<option>Year</option>'; // first option
 
-        for (let i = year_satart; i <= year_end; i++) {
+        for (let i = year_start; i <= year_end; i++) {
             let yearSelected = (i === year_selected ? ' selected' : '');
             optionYear += '<option value="' + i + '"' + yearSelected + '>' + i + '</option>';
         }
+        
         const year = document.getElementById("year")
         if(year){
           year.innerHTML = optionYear;
@@ -57,13 +81,14 @@ export class AppComponent implements OnInit{
 
         // MONTH
 
-        let month_satart = (new Date).getMonth()-1;
-        let month_end = (new Date).getMonth(); // current year
-        let month_selected = month_end;
+        let month_start = 1;
+        let month_end = 12;
+        let month_selected = 0;
   
         let optionMonth = '';
-  
-        for (let i = month_satart; i <= month_end; i++) {
+        optionMonth = '<option>Month</option>'; // first option
+        
+        for (let i = month_start; i <= month_end; i++) {
             let monthSelected = (i === month_selected ? ' selected' : '');
             optionMonth += '<option value="' + i + '"' + monthSelected + '>' + i + '</option>';
         }
@@ -73,13 +98,14 @@ export class AppComponent implements OnInit{
         }
         // Day
 
-        let day_satart = 1;
-        let day_end = 31; // current year
-        let day_selected = (new Date).getDay();
+        let day_start = 1;
+        let day_end = 31; // current day
+        let day_selected = 0;
   
         let optionDay = '';
+        optionDay = '<option>Day</option>'; // first option
   
-        for (let i = day_satart; i <= day_end; i++) {
+        for (let i = day_start; i <= day_end; i++) {
             let daySelected = (i === day_selected ? ' selected' : '');
             optionDay += '<option value="' + i + '"' + daySelected + '>' + i + '</option>';
         }
@@ -103,8 +129,15 @@ export class AppComponent implements OnInit{
     return (decreaseValue / b) * 100;
 }
 
-  callIP() {
+  callIP(reset: number) {
+   if(reset === 1){
+    const { year, month, day } = this.state.selectedDate
+    year !== "" && month !=="" && day !== "" 
+    ? this.state.date = year + "-" + month + "-" + day
+    : this.state.date
+   }
     const { currency, date } = this.state
+    console.log("DATE " + this.state.date)
    
     this.apiService.getOpenCloseBTC(currency, date).subscribe(BTC =>{
       this.openCloseResponse.BTC.open = BTC.open;
