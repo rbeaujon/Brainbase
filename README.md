@@ -8,7 +8,7 @@ Likewise, a simple but informative design is maintained with colors when the cur
 
 Front-End: Angular, Typescript and CSS
 
-<img src="/documentation/diagram/diagram.png" width="80%">
+<img src="/documentation/diagram.png" width="80%">
 
 ## Views
 
