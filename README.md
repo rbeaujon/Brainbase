@@ -10,8 +10,11 @@ Front-End: Angular, Typescript and CSS
 
 ### Views
 
+### Daily opening and closing request
 <img src="/documentation/no_access.png" width="80%">
-<img src="/adocumentation/ssets//app.png" width="80%">
+
+### Fail request
+<img src="/documentation/app.png" width="80%">
 
 ## Project Hosting
 
