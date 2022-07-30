@@ -1,27 +1,34 @@
 # Brainbase
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
+The following project is an application created in Angular version 14.1.0 to get the open and close prices of 5 cryptocurrencies symbols on a certain day. I used an API of https://polygon.io/ using an APIKey. Errors and blocking of sending requests are handled in the same to avoid errors given by the API such as 429. Likewise, a simple but informative design is maintained with colors when the currency rises or falls or if there is a connection failure, it is reported via a status bar.
 
-## Development server
+### Technical details
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Front-End: Angular, Typescript and CSS
 
-## Code scaffolding
+<img src="/assets/diagram/diagram.png" width="80%">
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Views
 
-## Build
+<img src="/assets/no_access.png" width="80%">
+<img src="/assets//app.png" width="80%">
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Project Hosting 
+<https://aistica.com/brainbase/>
 
-## Running unit tests
+## Available Scripts
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+In the project directory, you can run:
 
-## Running end-to-end tests
+### `ng serve`
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+To view in the browser
+Local [http://localhost:4200]
 
-## Further help
+Remote [https://aistica.com/brainbase]
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## API ENDPOINTS
+
+### POLYGON.io
+
+* [https://polygon.io/v1/open-close/crypto/{from}/{to}/{date}]

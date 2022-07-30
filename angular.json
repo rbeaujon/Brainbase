@@ -52,7 +52,7 @@
             },
             "development": {
               "buildOptimizer": false,
-              "optimization": false,
+              "optimization": true,
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
@@ -102,4 +102,5 @@
   "cli": {
     "analytics": "e45b0edf-7d98-4273-972d-36ed3b7e9fc4"
   }
+  
 }
