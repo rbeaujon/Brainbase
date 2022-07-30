@@ -8,7 +8,7 @@ Front-End: Angular, Typescript and CSS
 
 <img src="/documentation/diagram/diagram.png" width="80%">
 
-### Views
+## Views
 
 ### Daily opening and closing request
 <img src="/documentation/no_access.png" width="80%">
