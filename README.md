@@ -6,12 +6,12 @@ The following project is an application created in Angular version 14.1.0 to get
 
 Front-End: Angular, Typescript and CSS
 
-<img src="/assets/diagram/diagram.png" width="80%">
+<img src="/src/assets/diagram/diagram.png" width="70%">
 
 ### Views
 
-<img src="/assets/no_access.png" width="80%">
-<img src="/assets//app.png" width="80%">
+<img src="/src/assets//app.png" width="80%">
+<img src="/src/assets/no_access.png" width="80%">
 
 ## Project Hosting 
 <https://aistica.com/brainbase/>
