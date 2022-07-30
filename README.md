@@ -11,10 +11,11 @@ Front-End: Angular, Typescript and CSS
 ## Views
 
 ### Daily opening and closing request
-<img src="/documentation/no_access.png" width="80%">
+<img src="/documentation/app.png" width="80%">
 
 ### Fail request
-<img src="/documentation/app.png" width="80%">
+<img src="/documentation/no_access.png" width="80%">
+
 
 ## Project Hosting
 
@@ -36,3 +37,10 @@ Remote [https://aistica.com/brainbase]
 ### POLYGON.io
 
 * [https://polygon.io/v1/open-close/crypto/{from}/{to}/{date}]
+
+### OUTSCOPE
+  
+    * More elegant UI.
+    * better selection of the date in the calendar.
+    * Improve error detection.
+    * Perform automated tests.
