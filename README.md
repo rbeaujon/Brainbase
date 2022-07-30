@@ -1,8 +1,10 @@
 The following project is an application created in Angular version 14.1.0 to get the opening and closing prices of 5 cryptocurrencies symbols on a certain day.
-I used an API of https://polygon.io/ using an APIKey; the blocked send requests are handled to avoid errors given by the API such as 429.
+<p>
+I used an API of https://polygon.io/ with an APIKey; the blocked send requests are handled to avoid errors given by the API such as 429.
+<p>
 Likewise, a simple but informative design is maintained with colors when the currency rises or falls or if there is a connection failure, it is reported via a status bar.
 
-### Technical details
+## Technical details
 
 Front-End: Angular, Typescript and CSS
 
@@ -10,10 +12,10 @@ Front-End: Angular, Typescript and CSS
 
 ## Views
 
-### Daily opening and closing request
+#### Daily opening and closing request
 <img src="/documentation/app.png" width="80%">
 
-### Fail request
+#### Fail request
 <img src="/documentation/no_access.png" width="80%">
 
 
@@ -32,13 +34,13 @@ Local [http://localhost:4200]
 
 Remote [https://aistica.com/brainbase]
 
-## API ENDPOINTS
+## API Endpoints
 
-### POLYGON.io
+#### POLYGON.io
 
-* [https://polygon.io/v1/open-close/crypto/{from}/{to}/{date}]
+* [https://api.polygon.io/v1/open-close/crypto/{crypto-symbol}/{currency}/{date}?adjusted=true&apiKey={APIkey}]
 
-### OUTSCOPE
+## Outscope
   
     * More elegant UI.
     * better selection of the date in the calendar.
