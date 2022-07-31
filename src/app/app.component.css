@@ -110,3 +110,39 @@
       float:left;
       font-size: 0.7vw;
   }
+
+  /* Responsive Web Design */
+
+    @media  screen and (max-width: 600px)  {
+        * {
+            font-size: 2.8vw;
+        }
+        .selectors {
+            grid-template-columns: 25vw 15vw 18vw 38vw;
+            padding: 4% 0%;
+        }
+        .column {
+            padding: 0px;
+        }
+        .column table {
+            width: 100vw;
+        }
+        th, td{
+            padding: 15px;
+        }
+        .calendar {
+            padding: 1px 0 0 0;
+            left: -18vw;
+            top: -3px;
+            width: 56vw;
+        }
+        .calendar button {
+            font-size: 2vw;
+            padding: 0.5vw 1.5vw;
+        }
+        .calendar select {
+            width: 13vw;
+        }
+
+    }
+

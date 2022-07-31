@@ -214,34 +214,34 @@ export class AppComponent implements OnInit{
 
     /****************** DOGE *********************/
     this.apiService.getOpenCloseDOGE(currency, date).subscribe((DOGE)=>{
-      const cryptoDOTGE = this.openCloseResponse.DOGE
-      cryptoDOTGE.open = DOGE.open;
-      cryptoDOTGE.close = DOGE.close;
-      cryptoDOTGE.diff = parseFloat((this.getDiff(parseFloat(DOGE.open),parseFloat(DOGE.close))).toFixed(2));
-      cryptoDOTGE.color = this.openCloseResponse.DOGE.diff > 0 ? "green" : "red"
-      cryptoDOTGE.error = ""
+      const cryptoDOGE = this.openCloseResponse.DOGE
+      cryptoDOGE.open = DOGE.open;
+      cryptoDOGE.close = DOGE.close;
+      cryptoDOGE.diff = parseFloat((this.getDiff(parseFloat(DOGE.open),parseFloat(DOGE.close))).toFixed(2));
+      cryptoDOGE.color = this.openCloseResponse.DOGE.diff > 0 ? "green" : "red"
+      cryptoDOGE.error = ""
     },
     () => {   // Error verification
       console.log('error caught in component')
       const cryptoDOTGE = this.openCloseResponse.DOGE
-      cryptoDOTGE.open = "no access";
-      cryptoDOTGE.close = "no access";
-      cryptoDOTGE.diff = 0;
-      cryptoDOTGE.color = ""
-      cryptoDOTGE.error = "access_error";
+      cryptoDOGE.open = "no access";
+      cryptoDOGE.close = "no access";
+      cryptoDOGE.diff = 0;
+      cryptoDOGE.color = ""
+      cryptoDOGE.error = "access_error";
     });
 
     const information = document.getElementById("information")
     if(information) {
       information.style.display = 'none';
     }
-    const cryptoBTC = this.openCloseResponse.DOGE
-    const cryptoETH = this.openCloseResponse.DOGE
-    const cryptoLTC = this.openCloseResponse.DOGE
-    const cryptoDOT = this.openCloseResponse.DOGE
-    const cryptoDOTGE = this.openCloseResponse.DOGE
+    const cryptoBTC = this.openCloseResponse.BTC
+    const cryptoETH = this.openCloseResponse.ETH
+    const cryptoLTC = this.openCloseResponse.LTC
+    const cryptoDOT = this.openCloseResponse.DOT
+    const cryptoDOGE = this.openCloseResponse.DOGE
 
-    if(cryptoBTC.error !== "" ||cryptoETH.error !== "" || cryptoLTC.error !== "" || cryptoDOT.error !== "" || cryptoDOTGE.error !== "" ){
+    if(cryptoBTC.error !== "" ||cryptoETH.error !== "" || cryptoLTC.error !== "" || cryptoDOT.error !== "" || cryptoDOGE.error !== "" ){
       if(information) {
         information.style.display = 'block';
       }
