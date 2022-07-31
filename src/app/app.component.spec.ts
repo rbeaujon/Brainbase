@@ -18,25 +18,25 @@ describe('AppComponent', () => {
     }).compileComponents();
   }));
 
-  it('should create the app', () => {
+  it('Should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
 
-  it('Should has the title "brainbase" ', () => {
+  it('Should have the title "brainbase" ', () => {
     const fixture = TestBed.createComponent(AppComponent)
     const app = fixture.componentInstance;
     expect(app.title).toBe('brainbase');
   })
 
-  it('Expect the correct porcentage ', () => {
+  it('Expect the correct percentage ', () => {
     const fixture = TestBed.createComponent(AppComponent)
     const app = fixture.componentInstance;
     expect(app.getDiff(50, 100)).toEqual(50);
   })
 
-  it('Should be disabled the currency button ', () => {
+  it('Should the currency button be disabled ', () => {
     const fixture = TestBed.createComponent(AppComponent)
     const app = fixture.componentInstance;
     const element: HTMLSelectElement = fixture.debugElement.nativeElement.querySelector('#currency');
