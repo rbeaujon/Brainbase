@@ -149,7 +149,6 @@ export class AppComponent implements OnInit{
       cryptoBTC.error = ""
     },
     () => {   // Error verification
-      console.log('error caught in component')
       const cryptoBTC = this.openCloseResponse.BTC
       cryptoBTC.open = "no access";
       cryptoBTC.close = "no access";
@@ -167,7 +166,6 @@ export class AppComponent implements OnInit{
       cryptoETH.error = ""
     },
     () => {   // Error verification
-      console.log('error caught in component')
       const cryptoETH = this.openCloseResponse.ETH
       cryptoETH.open = "no access";
       cryptoETH.close = "no access";
@@ -185,7 +183,6 @@ export class AppComponent implements OnInit{
       cryptoLTC.error = ""
     },
     () => {   // Error verification
-      console.log('error caught in component')
       const cryptoLTC = this.openCloseResponse.LTC
       cryptoLTC.open = "no access";
       cryptoLTC.close = "no access";
@@ -203,7 +200,6 @@ export class AppComponent implements OnInit{
       cryptoDOT.error = ""
     },
     () => {   // Error verification
-      console.log('error caught in component')
       const cryptoDOT = this.openCloseResponse.DOT
       cryptoDOT.open = "no access";
       cryptoDOT.close = "no access";
@@ -222,7 +218,6 @@ export class AppComponent implements OnInit{
       cryptoDOGE.error = ""
     },
     () => {   // Error verification
-      console.log('error caught in component')
       const cryptoDOTGE = this.openCloseResponse.DOGE
       cryptoDOGE.open = "no access";
       cryptoDOGE.close = "no access";
