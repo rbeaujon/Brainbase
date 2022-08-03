@@ -13,8 +13,8 @@
                 <select id="year" #year (change)="onSelectedYear(year.value)"></select>
                 <select id="month" name="month"></select>
                 <select id="day" name="day"></select>
-                <button id="buttonOK"(click)="this.callIP(0)"(change)="avoid429()" >OK</button>
-                <button id="buttonToday" (click)="this.callIP(1)" (change)="avoid429()" >Today</button>
+                <button id="buttonOK"(click)="this.callIP(0)"(click)="avoid429()" >OK</button>
+                <button id="buttonToday" (click)="this.callIP(1)" (click)="avoid429()" >Today</button>
                 
             </div>
 
