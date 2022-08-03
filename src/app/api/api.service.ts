@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { OpenCloseResponseI } from '../model/response.interface';
 
+
 @Injectable({
   providedIn: 'root'
 })

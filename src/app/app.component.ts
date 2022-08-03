@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from './api/api.service';
-import { OpenCloseResponseI } from './model/response.interface';
  
 @Component({
   selector: 'app-root',
@@ -118,9 +117,15 @@ export class AppComponent implements OnInit{
   
   avoid429() {
   const selecto = document.getElementById("currency") as HTMLSelectElement
+  const buttonOK = document.getElementById("buttonOK") as HTMLButtonElement
+  const buttonToday = document.getElementById("buttonToday") as HTMLButtonElement
   selecto.disabled = true;
+  buttonOK.disabled = true;
+  buttonToday.disabled = true;
   setTimeout(()=>{
     selecto.disabled = false;
+    buttonOK.disabled = false;
+    buttonToday.disabled = false;
   }, 25000)
 }
 
@@ -131,7 +136,7 @@ export class AppComponent implements OnInit{
 
   callIP(reset: number) {
     
-   if(reset === 1){
+   if(reset === 1){ //check if should have a date selected
     const { year, month, day } = this.state.selectedDate
     year !== "" && month !=="" && day !== "" 
     ? this.state.date = year + "-" + month + "-" + day

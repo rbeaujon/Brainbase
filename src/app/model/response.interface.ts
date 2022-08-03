@@ -1,5 +1,5 @@
 export interface OpenCloseResponseI {
-    close: string 
-    open: string
+    close: string
+     open: string
     
 }
